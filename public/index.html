@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href= "css/syntax.css"/>
+
+  </head>
+  <body>
+    <!--
+  <div id="wrapper">
+
+    <div id="header">
+    <div class="box">This is the header content</div>
+
+    </div>
+
+    <nav id="main-navigation">
+        <ul>
+            <li><a href="#" class="inventory">Inventory</a></li>
+            <li><a href="#">Info</a></li>
+            <li><a href="#">About Me</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Book</a></li>
+        </ul>
+    </nav>
+
+
+  -->
+    <input type="text" id="firstname" name="" value="">
+    <button type="button" name="button">Login</button>
+    <a href="/login.html">login page</a>
+
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+
+   <script type="text/javascript">
+   $(document.ready(function(){
+
+   })
+    $(function(){
+      $("button").click(function(){
+        let firstname = $("#firstname").val();
+        let test = document.getElementById('firstname').value
+        console.log(firstname)
+        let obj = {first_name:'ytrt'}
+        let obj = {firstname}
+        $.ajax({
+  type: "POST",
+  dataType: "json",
+  crossdomain: true,
+  headers: {
+    "Access-Control-Allow-Origin": "*"
+  },
+  contentType: "application/json",
+  url: "/test",
+  data: JSON.stringify(obj),
+  success: function(obj) {
+
+  },
+  });
+      });
+    })
+  </script>
+
+  </div>
+  </body>
+</html>

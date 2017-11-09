@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <span>First name</span>
+      </div>
+      <div class="col-sm-6">
+        <input id="firstname" type="text" name="" value="">
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-6">
+        <span>Last name</span>
+      </div>
+      <div class="col-sm-6">
+        <input id="lastname" type="text" name="" value="">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <span>Email address</span>
+      </div>
+      <div class="col-sm-6">
+        <input id="email" type="text" name="" value="">
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-6">
+        <button id="btnUpdate"type="button" name="button">Update Profile</button>
+      </div>
+    </div>
+
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+  $(function(){
+
+
+
+    function loadUserData(userid) {
+      $.ajax({
+        type: "GET",
+        dataType: "json",
+        crossdomain: true,
+        headers: {
+          "Access-Control-Allow-Origin": "*"
+        },
+        contentType: "application/json",
+        url: "/api/users/" + userid,
+        success: function(obj) {
+
+          if(obj && obj.success == true){
+            let firstName = obj.data.first_name;
+            let lastName = obj.data.last_name;
+            let email = obj.data.email;
+            $("#firstname").val(firstName);
+            $("#lastname").val(lastName);
+            $("#email").val(email);
+            console.log(obj);
+          }
+        },
+        error: function(err){
+          console.log(er);
+        }
+      });
+    }
+
+
+
+    loadUserData(2);
+    $("#btnUpdate").click(function(){
+      //need to change
+      let userid = 2;
+      var firstname = $("#firstname").val();
+      var lastname = $("#lastname").val();
+      var email = $("#email").val();
+      let obj = {firstname, lastname, email, userid};
+      $.ajax({
+type: "PUT",
+dataType: "json",
+crossdomain: true,
+headers: {
+  "Access-Control-Allow-Origin": "*"
+},
+contentType: "application/json",
+url: "/api/users",
+data: JSON.stringify(obj),
+success: function(obj) {
+
+},
+});
+    })
+  })
+
+
+  </script>
+
+</body>
+
+</html>

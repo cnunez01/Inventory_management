@@ -1,0 +1,25 @@
+body{
+  font-family: arial;
+  margin: 0;
+  background: #eee;
+}
+
+.box{
+  border: 1px solid;
+  padding: 30px;
+  background: #696969;
+  color: #FFFFFF;
+}
+
+
+#main-navigation{
+  background: #FAEBD7;
+  padding: 20px;
+  width: 100px;
+  height: 750px;
+}
+
+#main-navigation li{
+  display: inline-block;
+  margin-top: 20px;
+}
